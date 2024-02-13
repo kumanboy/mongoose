@@ -19,13 +19,8 @@ const movieModel = mongoose.model('Movie', movieSchema)
 const allDoc = async () => {
     try {
         //creating New Document
-        const result =  await movieModel.find() //All data
-        // console.log(result)
-        // kinolar nomini olish
-        result.forEach((movie) =>{
-            console.log(movie.name)
-        })
-
+        const result = await movieModel.find({name: "The Godfather"})
+        console.log(result)
     } catch (error) {
         console.log(error)
     }

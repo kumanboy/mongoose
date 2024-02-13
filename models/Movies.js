@@ -16,13 +16,11 @@ const movieSchema = new mongoose.Schema({
 //Creating Model
 
 const movieModel = mongoose.model('Movie', movieSchema)
-const updateById = async (id) => {
+const updateById = async () => {
     try {
         //creating New Document
-        const result = await movieModel.updateOne(
-            {_id: id},
-            {name: "Avengers"}
-        )
+        const result = await movieModel.deleteMany({rating: 5})
+        console.log(result)
     } catch (error) {
         console.log(error)
     }

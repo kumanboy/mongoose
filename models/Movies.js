@@ -19,7 +19,7 @@ const movieModel = mongoose.model('Movie', movieSchema)
 const allDoc = async () => {
     try {
         //creating New Document
-        const result = await movieModel.find().skip(4)
+        const result = await movieModel.find().sort({name: 1})
         console.log(result)
     } catch (error) {
         console.log(error)

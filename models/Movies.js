@@ -16,13 +16,15 @@ const movieSchema = new mongoose.Schema({
 //Creating Model
 
 const movieModel = mongoose.model('Movie', movieSchema)
-const allDoc = async () => {
+const updateById = async (id) => {
     try {
         //creating New Document
-        const result = await movieModel.find().sort({name: 1})
-        console.log(result)
+        const result = await movieModel.updateOne(
+            {_id: id},
+            {name: "Avengers"}
+        )
     } catch (error) {
         console.log(error)
     }
 }
-export {allDoc}
+export {updateById}
